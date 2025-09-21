@@ -54,8 +54,8 @@ This gives us all the information to extract the bits for the field's value
 and print that out next to a nicer looking path for the field.  The details
 are in `dump_type_layout.py`
 
-The script in `gron_cdata.py` shows how we can use these layouts to interpret
-bytes according to a layout and print out the corresponding field values
+The script in `gron_cdata.py` shows how we can use that to interpret
+bytes according to a layout and print the corresponding field values
 
 ```
 e = (enum e1)1094795585
