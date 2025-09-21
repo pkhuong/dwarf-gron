@@ -253,6 +253,8 @@ def list_bool(path, ctype, bitpos, bitsize):
     )
 
 
+# See https://sourceware.org/gdb/current/onlinedocs/gdb.html/Types-In-Python.html
+# when adding entries.
 CODE_TABLE = {
     gdb.TYPE_CODE_PTR: list_ptr,
     gdb.TYPE_CODE_ARRAY: list_array,
@@ -289,7 +291,13 @@ def list_one_var(scope, name, deref=True):
     if scope is None:
         # treat name as a type name
         ctype = gdb.lookup_type(name)
+        # See also lookup_global_symbol, etc.
+        # https://sourceware.org/gdb/current/onlinedocs/gdb.html/Symbols-In-Python.html
     else:
+        # You'd think we want
+        # https://sourceware.org/gdb/current/onlinedocs/gdb.html/Blocks-In-Python.html,
+        # but that's really for unwinding. We have to use
+        # https://sourceware.org/gdb/current/onlinedocs/gdb.html/Objfiles-In-Python.html
         if isinstance(scope, str):
             try:
                 objfile = gdb.lookup_objfile(scope)
