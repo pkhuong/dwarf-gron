@@ -55,4 +55,29 @@ and print that out next to a nicer looking path for the field.  The details
 are in `dump_type_layout.py`
 
 The script in `gron_cdata.py` shows how we can use these layouts to interpret
-bytes according to a layout and print out the corresponding field values.
+bytes according to a layout and print out the corresponding field values
+
+```
+e = (enum e1)1094795585
+name = b'AAA'
+f0 = true
+f1 = false
+f2 = false
+f3 = false
+f4 = false
+f5 = false
+f6 = true
+f7 = false
+f = 12.078431129455566
+z[0].x = 1094795585
+z[0].y = 1094795585
+z[1].x = 1094795585
+z[1].y = 1094795585
+c = 65
+```
+
+or even in [logfmt style](https://brandur.org/logfmt)
+
+```
+e=(enum e1)1094795585 name=b'AAA' f0=true f1=false f2=false f3=false f4=false f5=false f6=true ...
+```
